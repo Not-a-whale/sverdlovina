@@ -250,6 +250,7 @@
       text-align: center;
       outline: none;
       border: none;
+      margin-bottom: 1rem;
       background: linear-gradient(
         to right top,
         $primary-color-1,
