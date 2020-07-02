@@ -67,3 +67,50 @@ ORDER: Base + typography > general layout + grid > page layout > components
     } //1800
   }
 }
+
+@mixin heading() {
+  .heading {
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $white-color;
+    padding-bottom: 2rem;
+
+    @media screen and (max-width: 1024px) {
+      height: 10vh;
+    }
+
+    @media screen and (max-width: 768px) {
+      height: 10vh;
+      padding-bottom: 0.5rem;
+    }
+
+    @media screen and (max-width: 420px) {
+      height: 7vh;
+    }
+
+    &--text {
+      color: $font-color;
+      font-size: 4.8rem;
+      text-transform: uppercase;
+
+      @media screen and (max-width: 420px) {
+        padding-top: 1rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+    &--underline {
+      height: 2.1rem;
+      width: 18.3rem;
+      background: $background-gradient;
+      margin-top: 1rem;
+
+      @media screen and (max-width: 768px) {
+        height: 1rem;
+        margin-top: 0;
+      }
+    }
+  }
+}

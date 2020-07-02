@@ -1,6 +1,6 @@
 <template>
   <div class="v-carousel-item">
-    <img :src="require('./' + item_data.img)" />
+    <div class="image" :style="{backgroundImage: 'url('+require('./' + item_data.img)+')'}">"></div>
   </div>
 </template>
 
@@ -12,9 +12,6 @@ export default {
       type: Object,
       default: () => {}
     }
-  },
-  mounted() {
-    console.log(this.item_data.img);
   }
 };
 </script>
@@ -23,9 +20,10 @@ export default {
 .v-carousel-item {
   width: 100%;
 
-  img {
-    height: 100%;
+  .image {
+    padding-top: 56.25%;
     width: 100vw;
+    background-size: cover;
   }
 }
 </style>

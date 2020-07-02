@@ -6,13 +6,13 @@
     <div class="arrow arrow__left" @click="prevSlide()">
       <i class="fas fa-chevron-left"></i>
     </div>
-    <div class="v-carousel" :style="{ 'margin-left': '-' + 100 * currentSlideIndex + '%' }">
-      <v-carousel-item v-for="item in slider_data" :item_data="item" :key="slider_data.id"></v-carousel-item>
+    <div class="slider__heading">
+      <h2 class="heading__top">Всі види буріння</h2>
+      <h2 class="heading__bottom">Гарантія</h2>
     </div>
-    <div class="header__slider">
-      <div class="slider__heading">
-        <h2 class="heading__top">Всі види буріння</h2>
-        <h2 class="heading__bottom">Гарантія</h2>
+    <div class="wrapper__slider">
+      <div class="v-carousel" :style="{ 'margin-left': '-' + 100 * currentSlideIndex + '%' }">
+        <v-carousel-item v-for="item in slider_data" :item_data="item" :key="slider_data.id"></v-carousel-item>
       </div>
       <form class="heading__form">
         <div class="form__input form__input--first-name">
@@ -37,8 +37,6 @@
     </div>
   </div>
 </template>
-
-
 
 <script>
 import vCarouselItem from "./header-slider-slides";
@@ -91,10 +89,11 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
-  position: relative;
   width: 100%;
-  height: 75vh;
+  position: relative;
   overflow: hidden;
+  background: $white-color;
+  z-index: 1;
 
   .arrow {
     position: absolute;
@@ -104,6 +103,11 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 3;
+
+    @media screen and (max-width: 450px) {
+      height: 27vh;
+    }
 
     svg {
       color: transparent;
@@ -120,52 +124,70 @@ export default {
       }
     }
   }
-
   .arrow__right {
     position: absolute;
     top: 0;
     right: 0;
   }
 
-  .v-carousel {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    transition: all ease 0.5s;
-  }
+  .slider__heading {
+    position: absolute;
+    top: 5%;
+    left: 4rem;
 
-  .header__slider {
-    box-sizing: border-box;
-    width: 100%;
-    height: 75vh;
-    z-index: 1;
-    .slider__heading {
-      position: absolute;
-      top: 5%;
-      left: 4rem;
+    .heading__top {
+      font-size: 4.2rem;
+      color: $dark-blue-color;
+      color: $white-color;
 
-      .heading__top {
-        font-size: 4.2rem;
-        color: $dark-blue-color;
-        color: $white-color;
-      }
-
-      .heading__bottom {
-        font-size: 4.2rem;
-        color: $dark-blue-color;
-        text-align: left;
+      @media screen and (max-width: 450px) {
+        display: none;
       }
     }
 
-    form.heading__form {
+    .heading__bottom {
+      font-size: 4.2rem;
+      color: $dark-blue-color;
+      text-align: left;
+
+      @media screen and (max-width: 450px) {
+        display: none;
+      }
+    }
+  }
+  .wrapper__slider {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    .v-carousel {
+      display: flex;
+      width: 100vw;
+      z-index: -1;
+      transition: all ease 0.5s;
+    }
+    form {
       position: absolute;
       top: 50%;
       right: 4rem;
       height: 36rem;
       width: 31.8rem;
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: #00000066;
       transform: translateY(-50%);
+      padding-bottom: 1rem;
+      border-radius: 10px;
+
+      @media screen and (max-width: 450px) {
+        width: 100%;
+        height: auto;
+        transform: translateY(0);
+        background-color: #00000066;
+        position: static;
+        border-radius: 0;
+      }
+
+      @media screen and (max-width: 768px) {
+        border-radius: 0;
+      }
 
       .form__input {
         display: flex;
@@ -173,6 +195,11 @@ export default {
         justify-content: space-between;
         width: 90%;
         margin: 5% auto;
+
+        @media screen and (max-width: 450px) {
+          margin: 5px auto;
+        }
+
         input {
           height: 2.8rem;
           border-radius: 5px;
@@ -180,6 +207,11 @@ export default {
           outline: none;
           font-size: 1.8rem;
           padding-left: 0.5rem;
+
+          @media screen and (max-width: 450px) {
+            height: 4rem;
+            font-size: 2.5rem;
+          }
         }
 
         label {
@@ -188,6 +220,9 @@ export default {
           padding-bottom: 5px;
           align-self: start;
           text-transform: uppercase;
+          @media screen and (max-width: 450px) {
+            font-size: 2.5rem;
+          }
         }
 
         .input__button {
@@ -209,7 +244,8 @@ export default {
           box-shadow: inset 7px 7px 7px 0px rgba(255, 255, 255, 0.3),
             inset -7px -7px 7px 0px rgba(0, 0, 0, 0.4);
           transition: 0.2s all ease;
-
+          text-transform: uppercase;
+          font-weight: bold;
           &:hover {
             cursor: pointer;
             filter: brightness(110%);
@@ -229,9 +265,172 @@ export default {
             filter: brightness(110%);
             -webkit-filter: brightness(110%);
           }
+
+          @media screen and (max-width: 450px) {
+            height: 9rem;
+            text-transform: uppercase;
+          }
         }
       }
     }
   }
 }
+/* .wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: $white-color;
+
+  @media screen and (max-width: 450px) {
+    height: 85vh;
+  }
+
+  .arrow {
+    
+  }
+
+
+
+  .v-carousel {
+    display: flex;
+    width: 100vw;
+    z-index: -1;
+    transition: all ease 0.5s;
+  }
+
+  .header__slider {
+    box-sizing: border-box;
+    width: 100%;
+    z-index: 1;
+    .slider__heading {
+      position: absolute;
+      top: 5%;
+      left: 4rem;
+
+      .heading__top {
+        font-size: 4.2rem;
+        color: $dark-blue-color;
+        color: $white-color;
+
+        @media screen and (max-width: 450px) {
+          display: none;
+        }
+      }
+
+      .heading__bottom {
+        font-size: 4.2rem;
+        color: $dark-blue-color;
+        text-align: left;
+
+        @media screen and (max-width: 450px) {
+          display: none;
+        }
+      }
+    }
+
+    form.heading__form {
+      position: absolute;
+      top: 50%;
+      right: 4rem;
+      height: 36rem;
+      width: 31.8rem;
+      background-color: #00000066;
+      transform: translateY(-50%);
+
+      @media screen and (max-width: 450px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 50%;
+        top: 39%;
+        right: 50%;
+        transform: translateX(50%);
+      }
+      .form__input {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 90%;
+        margin: 5% auto;
+
+        @media screen and (max-width: 450px) {
+          margin: 5px auto;
+        }
+
+        input {
+          height: 2.8rem;
+          border-radius: 5px;
+          border: none;
+          outline: none;
+          font-size: 1.8rem;
+          padding-left: 0.5rem;
+
+          @media screen and (max-width: 450px) {
+            height: 4rem;
+            font-size: 2.5rem;
+          }
+        }
+
+        label {
+          font-size: 1.8rem;
+          color: $white-color;
+          padding-bottom: 5px;
+          align-self: start;
+          text-transform: uppercase;
+          @media screen and (max-width: 450px) {
+            font-size: 2.5rem;
+          }
+        }
+
+        .input__button {
+          height: 9.3rem;
+          margin-top: 1.3rem;
+          border-radius: 5px;
+          outline: none;
+          border: none;
+          background: linear-gradient(
+            to right top,
+            $primary-color-1,
+            $dark-blue-color
+          );
+          font-size: 1.9rem;
+          font-weight: 700;
+          color: $white-color;
+          letter-spacing: 1px;
+          opacity: 1;
+          box-shadow: inset 7px 7px 7px 0px rgba(255, 255, 255, 0.3),
+            inset -7px -7px 7px 0px rgba(0, 0, 0, 0.4);
+          transition: 0.2s all ease;
+          text-transform: uppercase;
+          &:hover {
+            cursor: pointer;
+            filter: brightness(110%);
+            -webkit-filter: brightness(110%);
+          }
+
+          &:active {
+            box-shadow: inset 7px 7px 7px 0px rgba(0, 0, 0, 0.4),
+              inset -7px -7px 7px 0px rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transform: scale(0.98);
+            filter: brightness(110%);
+            -webkit-filter: brightness(110%);
+          }
+
+          &:focus {
+            filter: brightness(110%);
+            -webkit-filter: brightness(110%);
+          }
+
+          @media screen and (max-width: 450px) {
+            height: 9rem;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+} */
 </style>
