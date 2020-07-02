@@ -100,7 +100,7 @@
 
     &__button {
       display: none;
-      background-color: $white-color;
+      background-color: $primary-color-1;
       text-align: center;
       height: 7rem;
       width: 7rem;
@@ -283,7 +283,7 @@
       &::after {
         width: 3rem;
         height: 3px;
-        background-color: $primary-color-2;
+        background-color: $white-color;
         display: none;
         transition: all 0.2s;
 
@@ -329,9 +329,14 @@
     }
 
     &__checkbox:checked + label {
+      background-color: $white-color;
+    }
+
+    &__checkbox:checked + label {
       .navigation__icon::before {
         top: 0;
         transform: rotate(135deg);
+        background-color: $primary-color-2;
       }
     }
 
@@ -339,6 +344,7 @@
       .navigation__icon::after {
         top: 0;
         transform: rotate(45deg);
+        background-color: $primary-color-1;
       }
     }
   }
