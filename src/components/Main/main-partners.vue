@@ -8,7 +8,7 @@
       <div class="partners__right">
         <a href="http://www.zb2.com.ua/">
           <img
-            src="../assets/images/Zhitlobud.png"
+            src="../../assets/images/Zhitlobud.png"
             alt="Zhutlobud image"
             class="right__img partners__img"
           />
@@ -18,7 +18,7 @@
         <div class="center__both">
           <a href="https://evrobud.renome.ua/">
             <img
-              src="../assets/images/Renome.png"
+              src="../../assets/images/Renome.png"
               alt="Renome image"
               class="partners__img center__img--1"
             />
@@ -26,7 +26,7 @@
 
           <a href="http://pankurchak.ua/">
             <img
-              src="../assets/images/Pan_Kurchak.png"
+              src="../../assets/images/Pan_Kurchak.png"
               alt="Pan Kurchak image"
               class="partners__img center__img--2"
             />
@@ -35,7 +35,7 @@
         <div class="center__one">
           <a href="http://www.ukrcom.net/">
             <img
-              src="../assets/images/UkrCom.png"
+              src="../../assets/images/UkrCom.png"
               alt="Ukrcom image"
               class="partners__img center__img--bottom"
             />
@@ -45,7 +45,7 @@
       <div class="partners__left">
         <a href="http://www.lstm.com.ua/">
           <img
-            src="../assets/images/LutskSantekhMontazh.png"
+            src="../../assets/images/LutskSantekhMontazh.png"
             alt="LutskSantechMontazh image"
             class="partners__img left__img"
           />

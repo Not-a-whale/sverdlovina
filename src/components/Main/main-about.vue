@@ -54,7 +54,7 @@
       .content__block {
         padding: 1rem 0 4rem 2%;
         margin: 0 auto 5rem auto;
-        background: url("../assets/images/white_background.jpg") no-repeat;
+        background: url("../../assets/images/white_background.jpg") no-repeat;
         display: grid;
         grid-template-columns: 1fr 1fr;
         column-gap: 2rem;
@@ -146,7 +146,7 @@
           display: flex;
           align-items: center;
           width: 100%;
-          background: url("../assets/images/main_image.jpg");
+          background: url("../../assets/images/main_image.jpg");
           background-size: 100% 100%;
         }
       }
