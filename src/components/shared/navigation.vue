@@ -238,6 +238,7 @@
       align-items: center;
       justify-content: center;
       transition: 0.4s all ease;
+
       @include respond(tab-port) {
         &:link,
         &:visited {

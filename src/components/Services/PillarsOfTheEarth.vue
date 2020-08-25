@@ -1,5 +1,3 @@
 <template>
-  <div>
-    <p>pillar pisya</p>
-  </div>
+  <div></div>
 </template>

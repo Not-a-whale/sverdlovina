@@ -95,7 +95,6 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      margin-right: 1rem;
       margin-top: 15rem;
       width: 100%;
       list-style: none;
