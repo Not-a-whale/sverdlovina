@@ -20,6 +20,9 @@
         <div class="testimonial__inside">
           <div class="inside__block">
             <p class="inside__text">
+              <p style="font-size: .1rem">look</p>
+
+              <br>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Temporibus eaque doloremque tempore cum dolorem assumenda
               molestiae reiciendis aut officia? Inventore sapiente saepe
@@ -171,100 +174,101 @@
 </template>
 
 <style lang="scss" scoped>
-  .testimonials {
-    &__content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      overflow-x: scroll;
-      overflow-y: hidden;
-      user-select: none;
-      cursor: pointer;
+@include heading;
+.testimonials {
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    user-select: none;
+    cursor: pointer;
 
-      &::-webkit-scrollbar {
-        display: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &__testimonial {
+    display: flex;
+    margin: 2rem;
+    .testimonial__person {
+      margin: 1rem;
+      img {
+        width: 8.2rem;
+        height: 8.2rem;
+        border-radius: 50%;
+      }
+
+      span {
+        font-size: 1.6rem;
+        color: $white-color;
       }
     }
-    &__testimonial {
-      display: flex;
-      margin: 2rem;
-      .testimonial__person {
-        margin: 1rem;
-        img {
-          width: 8.2rem;
-          height: 8.2rem;
-          border-radius: 50%;
+    .testimonial__inside {
+      .inside__block {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 31.4rem;
+        background-color: $white-color;
+        border-radius: 10px;
+        border-top-left-radius: 0;
+
+        &::after {
+          content: url("../../assets/images/triangle-testimonial.svg");
+          position: absolute;
+          width: 0;
+          height: 0;
+          left: -14px;
+          right: auto;
+          top: 23px;
+          bottom: auto;
+          transform: rotateZ(270deg);
         }
 
-        span {
+        p {
           font-size: 1.6rem;
-          color: $white-color;
-        }
-      }
-      .testimonial__inside {
-        .inside__block {
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          width: 31.4rem;
-          background-color: $white-color;
-          border-radius: 10px;
-
-          &::after {
-            content: " ";
-            position: absolute;
-            width: 0;
-            height: 0;
-            left: -20px;
-            right: auto;
-            top: 0px;
-            bottom: auto;
-            border: 22px solid;
-            border-color: $white-color transparent transparent transparent;
-          }
-
-          p {
-            font-size: 1.6rem;
-            padding: 1.5rem;
-            line-height: 2rem;
-            text-align: left;
-          }
+          padding: 1.5rem;
+          line-height: 2rem;
+          text-align: left;
         }
       }
     }
   }
+}
 </style>
 
 <script>
-  export default {
-    data() {
-      return {
-        isDown: false,
-        startX: null,
-        scrollLeft: null,
-      };
+export default {
+  data() {
+    return {
+      isDown: false,
+      startX: null,
+      scrollLeft: null
+    };
+  },
+  methods: {
+    mouseDown: function($event) {
+      this.isDown = true;
+      let slider = this.$refs.slider;
+      this.startX = $event.pageX - slider.offsetLeft;
+      this.scrollLeft = slider.scrollLeft;
     },
-    methods: {
-      mouseDown: function($event) {
-        this.isDown = true;
-        let slider = this.$refs.slider;
-        this.startX = $event.pageX - slider.offsetLeft;
-        this.scrollLeft = slider.scrollLeft;
-      },
-      mouseLeave: function($event) {
-        this.isDown = false;
-      },
-      mouseUp: function($event) {
-        this.isDown = false;
-      },
-      mouseMove: function($event) {
-        let slider = this.$refs.slider;
-        if (!this.isDown) return;
-        $event.preventDefault;
-        const x = $event.pageX - slider.offsetLeft;
-        const walk = x - this.startX;
-        slider.scrollLeft = this.scrollLeft - walk;
-      },
+    mouseLeave: function($event) {
+      this.isDown = false;
     },
-  };
+    mouseUp: function($event) {
+      this.isDown = false;
+    },
+    mouseMove: function($event) {
+      let slider = this.$refs.slider;
+      if (!this.isDown) return;
+      $event.preventDefault;
+      const x = $event.pageX - slider.offsetLeft;
+      const walk = x - this.startX;
+      slider.scrollLeft = this.scrollLeft - walk;
+    }
+  }
+};
 </script>

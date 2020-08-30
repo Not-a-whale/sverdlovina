@@ -45,7 +45,7 @@
           <p class="card__text">Гідроекологічні роботи</p>
         </router-link>
         <router-link to="/geo-find" tag="a" class="cards__card" exact>
-          <div class="card__image">
+          <div class="card__image geofind">
             <img
               src="../../assets/images/Layer 34.png"
               alt="Engineering and Geoecological findings"
@@ -190,8 +190,10 @@ export default {};
         }
         #find {
           position: absolute;
-          top: 45%;
-          right: 43%;
+          top: -50%;
+          left: -5rem;
+
+          transform: scale(2);
         }
         #drill {
           width: 50%;

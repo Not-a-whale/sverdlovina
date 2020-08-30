@@ -21,9 +21,11 @@ export default {
   width: 100%;
 
   .image {
-    padding-top: 56.25%;
+    padding-top: 50%;
     width: 100vw;
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }
 </style>

@@ -119,6 +119,12 @@
     rgba(20, 104, 187, 0.882158) 57.65%,
     #004593 80.06%
   );
+
+  &__text {
+    p {
+      padding: 2rem;
+    }
+  }
   &__header,
   .header {
     font-size: 2.8rem;
@@ -255,8 +261,17 @@
   }
 }
 .content {
-  background-image: url("../../assets/images/watter-drilling-background.svg");
-  background-size: 100% 100%;
+  background-image: url("../../assets/images/watter-drilling-background.svg"),
+    linear-gradient(
+      160.02deg,
+      rgba(69, 211, 254, 0.49) -6.16%,
+      rgba(69, 211, 254, 0.67) -6.15%,
+      #2674cc 93.91%
+    );
+  background-position: bottom;
+  background-size: 100% 100%, 100% 100%;
+  background-position: top, bottom;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -274,6 +289,27 @@
       text-align: center;
       width: 100%;
     }
+  }
+
+  & > p,
+  .loose-text {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.7rem;
+    line-height: 3.5rem;
+    margin-bottom: 35%;
+    width: 70%;
+    color: $white-color;
+
+    @include respond(tab-port) {
+      width: 90%;
+    }
+  }
+
+  .loose-text {
+    margin-top: 10%;
+    margin-bottom: 10%;
   }
 
   &__block,
@@ -331,6 +367,37 @@
     &--bottom {
       display: grid;
       flex-direction: row-reverse;
+    }
+  }
+
+  &__list {
+    width: 80%;
+
+    h4 {
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 36px;
+      line-height: 44px;
+      text-align: center;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+      text-align: left;
+      color: $white-color;
+    }
+
+    ul {
+      margin-bottom: 10%;
+      li {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 36px;
+        line-height: 44px;
+        padding: 2rem;
+        text-align: left;
+        color: $white-color;
+      }
     }
   }
 }

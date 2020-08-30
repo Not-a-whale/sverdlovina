@@ -52,32 +52,31 @@
 <style scoped lang="scss">
 .footer {
   height: 75vh;
-  background: url("../../assets/images/waves.png") no-repeat center;
+  width: 100%;
+  background: url("../../assets/images/waves.png") no-repeat;
   background-size: 100% 100%;
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
+  display: flex;
   justify-content: space-between;
-  justify-items: space-between;
-  align-content: space-evenly;
 
   @include respond(tab-port) {
-    grid-template-columns: 1fr;
-    grid-template-rows: max-content max-content;
+    flex-direction: column;
   }
 
   @include respond(tab-port) {
-    height: 120vh;
+    padding-top: 10rem;
+    height: 90vh;
+  }
+
+  @include respond(tab-land) {
+    padding-top: 10rem;
+    height: 110vh;
+  }
+
+  @include respond(phone) {
+    height: 95rem;
   }
 
   .navigation {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 50%;
-
     &__nav {
       transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
@@ -98,6 +97,7 @@
       margin-top: 15rem;
       width: 100%;
       list-style: none;
+      margin-left: 5rem;
 
       @include respond(tab-port) {
         display: inline-block;
@@ -106,6 +106,7 @@
         list-style: none;
         text-align: center;
         margin-top: 0;
+        margin-left: 0;
       }
     }
 
@@ -175,10 +176,17 @@
     display: flex;
     flex-direction: column;
     justify-items: center;
-    margin-top: 3rem;
+    margin-top: 5rem;
+    margin-right: 5rem;
+
+    @include respond(tab-port) {
+      margin-right: 0;
+      width: 100%;
+      padding-bottom: 3rem;
+    }
     &__form {
       height: 40rem;
-      width: 31.8rem;
+      width: 50rem;
       background-color: #00000066;
       padding-bottom: 1rem;
       border-radius: 10px;
@@ -215,7 +223,7 @@
       border-radius: 5px;
       border: none;
       outline: none;
-      font-size: 1.8rem;
+      font-size: 2.5rem;
       padding-left: 1rem;
 
       @media screen and (max-width: 450px) {
@@ -227,7 +235,8 @@
         height: 15rem;
         margin-bottom: 0.5rem;
         padding-top: 1rem;
-        font-size: 1.6rem;
+        font-size: 2.5rem;
+        padding-right: 1rem;
         @include respond(tab-port) {
           height: 13rem;
         }
@@ -295,6 +304,3 @@
 }
 </style>
 
-<script>
-export default {};
-</script>
